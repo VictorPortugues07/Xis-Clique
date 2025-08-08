@@ -1,0 +1,14 @@
+#bannerCarousel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.product-card {
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}

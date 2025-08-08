@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "name": "Hambúrguer Clássico 🍔",
+    "price": 15.0,
+    "img": "img/hamburguer1.jpg",
+    "description": "Pão macio, carne suculenta e queijo derretido."
+  },
+  {
+    "id": 2,
+    "name": "Cheeseburger Duplo 🧀🍔",
+    "price": 20.0,
+    "img": "img/hamburguer2.jpg",
+    "description": "Dois hambúrgueres com queijo cheddar e molho especial."
+  },
+  {
+    "id": 3,
+    "name": "X-Bacon 🥓🍔",
+    "price": 22.0,
+    "img": "img/hamburguer3.jpg",
+    "description": "Hambúrguer, queijo, bacon crocante e maionese."
+  },
+  {
+    "id": 4,
+    "name": "Cachorro-Quente 🌭",
+    "price": 12.0,
+    "img": "img/cachorroquente1.jpg",
+    "description": "Pão, salsicha e molhos especiais."
+  },
+  {
+    "id": 5,
+    "name": "Cachorro-Quente Duplo 🌭🌭",
+    "price": 16.0,
+    "img": "img/cachorroquente2.jpg",
+    "description": "Dupla de salsichas com queijo e bacon."
+  },
+  {
+    "id": 6,
+    "name": "Pizza Mussarela 🍕",
+    "price": 30.0,
+    "img": "img/pizza1.jpg",
+    "description": "Molho de tomate, queijo mussarela e orégano."
+  },
+  {
+    "id": 7,
+    "name": "Pizza Calabresa 🍕",
+    "price": 32.0,
+    "img": "img/pizza2.jpg",
+    "description": "Molho de tomate, calabresa e cebola."
+  },
+  {
+    "id": 8,
+    "name": "Pizza Frango Catupiry 🍕",
+    "price": 35.0,
+    "img": "img/pizza3.jpg",
+    "description": "Frango desfiado, catupiry e temperos especiais."
+  },
+  {
+    "id": 9,
+    "name": "Batata Frita 🍟",
+    "price": 10.0,
+    "img": "img/batata1.jpg",
+    "description": "Batata crocante e sequinha."
+  },
+  {
+    "id": 10,
+    "name": "Batata com Cheddar e Bacon 🧀🥓",
+    "price": 15.0,
+    "img": "img/batata2.jpg",
+    "description": "Batata frita com cheddar e bacon crocante."
+  },
+  {
+    "id": 11,
+    "name": "Refrigerante Lata 🥤",
+    "price": 6.0,
+    "img": "img/refri1.jpg",
+    "description": "Sua bebida favorita gelada."
+  },
+  {
+    "id": 12,
+    "name": "Refrigerante 600ml 🥤",
+    "price": 8.0,
+    "img": "img/refri2.jpg",
+    "description": "Bebida gelada no tamanho ideal para dividir."
+  },
+  {
+    "id": 13,
+    "name": "Suco Natural 🍊",
+    "price": 7.0,
+    "img": "img/suco1.jpg",
+    "description": "Suco fresco feito na hora."
+  },
+  {
+    "id": 14,
+    "name": "Milkshake Morango 🍓",
+    "price": 12.0,
+    "img": "img/milkshake1.jpg",
+    "description": "Milkshake cremoso de morango."
+  },
+  {
+    "id": 15,
+    "name": "Milkshake Chocolate 🍫",
+    "price": 12.0,
+    "img": "img/milkshake2.jpg",
+    "description": "Milkshake cremoso de chocolate."
+  },
+  {
+    "id": 16,
+    "name": "Açaí 300ml 🥶",
+    "price": 14.0,
+    "img": "img/acai1.jpg",
+    "description": "Açaí batido com banana."
+  },
+  {
+    "id": 17,
+    "name": "Açaí 500ml 🥶",
+    "price": 18.0,
+    "img": "img/acai2.jpg",
+    "description": "Açaí com granola, banana e mel."
+  },
+  {
+    "id": 18,
+    "name": "Pão de Queijo 🧀",
+    "price": 5.0,
+    "img": "img/paoqueijo1.jpg",
+    "description": "Pão de queijo mineiro."
+  },
+  {
+    "id": 19,
+    "name": "Croissant 🥐",
+    "price": 7.0,
+    "img": "img/croissant1.jpg",
+    "description": "Croissant amanteigado e crocante."
+  },
+  {
+    "id": 20,
+    "name": "Pastel Carne 🥟",
+    "price": 8.0,
+    "img": "img/pastel1.jpg",
+    "description": "Pastel frito de carne moída."
+  },
+  {
+    "id": 21,
+    "name": "Pastel Queijo 🥟🧀",
+    "price": 8.0,
+    "img": "img/pastel2.jpg",
+    "description": "Pastel frito recheado com queijo."
+  },
+  {
+    "id": 22,
+    "name": "Salada Tropical 🥗",
+    "price": 15.0,
+    "img": "img/salada1.jpg",
+    "description": "Salada com frutas e molho especial."
+  },
+  {
+    "id": 23,
+    "name": "Salada Caesar 🥗",
+    "price": 17.0,
+    "img": "img/salada2.jpg",
+    "description": "Salada com frango grelhado e croutons."
+  },
+  {
+    "id": 24,
+    "name": "Wrap Frango 🌯",
+    "price": 14.0,
+    "img": "img/wrap1.jpg",
+    "description": "Wrap com frango e vegetais frescos."
+  },
+  {
+    "id": 25,
+    "name": "Wrap Vegetariano 🌯",
+    "price": 14.0,
+    "img": "img/wrap2.jpg",
+    "description": "Wrap com legumes e molho especial."
+  },
+  {
+    "id": 26,
+    "name": "Hot Roll Sushi 🍣",
+    "price": 20.0,
+    "img": "img/sushi1.jpg",
+    "description": "Sushi empanado crocante."
+  },
+  {
+    "id": 27,
+    "name": "Temaki Salmão 🍣",
+    "price": 22.0,
+    "img": "img/sushi2.jpg",
+    "description": "Temaki com salmão fresco e cream cheese."
+  },
+  {
+    "id": 28,
+    "name": "Brownie 🍫",
+    "price": 10.0,
+    "img": "img/brownie1.jpg",
+    "description": "Brownie de chocolate com nozes."
+  },
+  {
+    "id": 29,
+    "name": "Bolo Cenoura 🍰",
+    "price": 8.0,
+    "img": "img/bolo1.jpg",
+    "description": "Bolo de cenoura com cobertura de chocolate."
+  },
+  {
+    "id": 30,
+    "name": "Churros Doce de Leite 🍩",
+    "price": 10.0,
+    "img": "img/churros1.jpg",
+    "description": "Churros crocantes recheados com doce de leite."
+  }
+]
