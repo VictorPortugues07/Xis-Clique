@@ -8,110 +8,195 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="pagina-inicial.css" />
   </head>
   <body>
-    <!-- Navbar lateral -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarMenu">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Menu</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <button class="btn btn-primary w-100 mb-2" id="langBtn">
-          🌐 Alterar idioma
-        </button>
-        <button
-          class="btn btn-success w-100"
-          data-bs-toggle="modal"
-          data-bs-target="#cartModal"
-        >
-          🛒 Carrinho <span class="badge bg-danger" id="cartCount">0</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Navbar topo -->
-    <nav class="navbar navbar-dark bg-dark p-3">
+    <!-- Navbar moderna fixa -->
+    <nav
+      class="navbar navbar-expand-lg fixed-top modern-navbar"
+      id="mainNavbar"
+    >
       <div class="container-fluid">
-        <button
-          class="btn btn-outline-light me-2"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#sidebarMenu"
-        >
-          ☰
-        </button>
-        <form class="d-flex w-50">
-          <input
-            class="form-control"
-            id="searchInput"
-            type="search"
-            placeholder="Buscar produto"
-          />
-        </form>
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <div class="logo-circle">
+            <i class="fas fa-hamburger"></i>
+          </div>
+          <span class="logo-text ms-2">Lanchonete</span>
+        </a>
+
+        <!-- Barra de pesquisa central -->
+        <div class="search-container mx-auto">
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar delícias..."
+              class="search-input"
+            />
+          </div>
+        </div>
+
+        <!-- Menu direita -->
+        <div class="navbar-nav flex-row align-items-center">
+          <!-- Seletor de idioma -->
+          <div class="nav-item dropdown me-3">
+            <button
+              class="btn btn-lang dropdown-toggle"
+              type="button"
+              id="langDropdown"
+              data-bs-toggle="dropdown"
+            >
+              <i class="fas fa-globe"></i>
+              <span id="currentLangText">PT</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end lang-dropdown">
+              <li>
+                <a class="dropdown-item" href="#" data-lang="pt"
+                  >🇧🇷 Português</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" data-lang="en">🇺🇸 English</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Carrinho -->
+          <button
+            class="btn btn-cart position-relative"
+            data-bs-toggle="modal"
+            data-bs-target="#cartModal"
+          >
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+            <span class="cart-pulse"></span>
+          </button>
+        </div>
       </div>
     </nav>
 
-    <!-- Banner -->
-    <div
-      id="bannerCarousel"
-      class="carousel slide"
-      data-bs-ride="carousel"
-      data-bs-interval="5000"
-    >
-      <div class="carousel-inner" id="bannerContainer">
-        <!-- JS vai injetar banners -->
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#bannerCarousel"
-        data-bs-slide="prev"
+    <!-- Hero Section / Banner -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div
+        id="bannerCarousel"
+        class="carousel slide h-100"
+        data-bs-ride="carousel"
+        data-bs-interval="4000"
       >
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#bannerCarousel"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </div>
-
-    <!-- Lista de produtos -->
-    <div class="container my-4">
-      <div class="row" id="productList">
-        <!-- Produtos via JS -->
+        <div class="carousel-inner h-100" id="bannerContainer">
+          <!-- JS vai injetar banners -->
+        </div>
+        <div class="carousel-indicators" id="bannerIndicators"></div>
       </div>
-    </div>
+      <div class="hero-content">
+        <h1 class="hero-title">Sabores que Conquistam</h1>
+        <p class="hero-subtitle">Descubra nossa seleção especial de delícias</p>
+        <button class="btn btn-hero" onclick="scrollToProducts()">
+          <span>Explorar Cardápio</span>
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
+    </section>
 
-    <!-- Modal Detalhes Produto -->
+    <!-- Seção de Produtos -->
+    <section class="products-section" id="productsSection">
+      <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="section-title">Nosso Cardápio</h2>
+          <p class="section-subtitle">Escolha seus sabores favoritos</p>
+        </div>
+
+        <!-- Filtros de categoria -->
+        <div class="category-filters mb-4">
+          <button class="filter-btn active" data-category="all">
+            <i class="fas fa-th"></i> Todos
+          </button>
+          <button class="filter-btn" data-category="lanches">
+            <i class="fas fa-hamburger"></i> Lanches
+          </button>
+          <button class="filter-btn" data-category="bebidas">
+            <i class="fas fa-coffee"></i> Bebidas
+          </button>
+          <button class="filter-btn" data-category="doces">
+            <i class="fas fa-candy-cane"></i> Doces
+          </button>
+          <button class="filter-btn" data-category="saudaveis">
+            <i class="fas fa-leaf"></i> Saudáveis
+          </button>
+        </div>
+
+        <!-- Grid de produtos -->
+        <div class="row" id="productGrid">
+          <!-- Produtos serão injetados via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Detalhes do Produto -->
     <div class="modal fade" id="productModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 id="modalProductName" class="modal-title"></h5>
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content modern-modal">
+          <div class="modal-header border-0">
             <button
               type="button"
-              class="btn-close"
+              class="btn-close modern-close"
               data-bs-dismiss="modal"
             ></button>
           </div>
-          <div class="modal-body text-center">
-            <img id="modalProductImage" class="img-fluid mb-3" alt="" />
-            <p id="modalProductDescription"></p>
-            <h4 id="modalProductPrice"></h4>
-          </div>
-          <div class="modal-footer">
-            <button id="addToCartBtn" class="btn btn-success">
-              Adicionar ao pedido
-            </button>
+          <div class="modal-body p-0">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <div class="modal-image-container">
+                  <img
+                    id="modalProductImage"
+                    class="modal-product-image"
+                    alt=""
+                  />
+                  <div class="image-overlay">
+                    <div class="price-badge">
+                      <span id="modalProductPrice"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="modal-product-info p-4">
+                  <h3 id="modalProductName" class="product-modal-title"></h3>
+                  <p
+                    id="modalProductDescription"
+                    class="product-modal-description"
+                  ></p>
+
+                  <div class="quantity-selector mb-4">
+                    <label class="quantity-label">Quantidade:</label>
+                    <div class="quantity-controls">
+                      <button class="quantity-btn" id="decreaseQty">-</button>
+                      <span class="quantity-display" id="modalQuantity">1</span>
+                      <button class="quantity-btn" id="increaseQty">+</button>
+                    </div>
+                  </div>
+
+                  <button id="addToCartBtn" class="btn btn-add-cart w-100">
+                    <i class="fas fa-cart-plus"></i>
+                    <span>Adicionar ao Carrinho</span>
+                    <div class="btn-shine"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -119,54 +204,86 @@
 
     <!-- Modal Carrinho -->
     <div class="modal fade" id="cartModal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content modern-modal">
           <div class="modal-header">
-            <h5 class="modal-title">Carrinho</h5>
+            <h5 class="modal-title">
+              <i class="fas fa-shopping-cart me-2"></i>
+              Seu Pedido
+            </h5>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close modern-close"
               data-bs-dismiss="modal"
             ></button>
           </div>
           <div class="modal-body">
-            <ul id="cartItems" class="list-group mb-3"></ul>
-            <h5>Total: R$ <span id="cartTotal">0,00</span></h5>
+            <div id="cartItems" class="cart-items-container"></div>
+            <div
+              id="cartEmpty"
+              class="cart-empty text-center py-5"
+              style="display: none"
+            >
+              <i class="fas fa-shopping-cart cart-empty-icon"></i>
+              <h5>Seu carrinho está vazio</h5>
+              <p>Adicione alguns itens deliciosos!</p>
+            </div>
           </div>
           <div class="modal-footer">
-            <button id="clearCartBtn" class="btn btn-danger">
-              Finalizar Pedido
-            </button>
+            <div class="cart-total-section w-100">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <span class="total-label">Total:</span>
+                <span class="total-value"
+                  >R$ <span id="cartTotal">0,00</span></span
+                >
+              </div>
+              <div class="d-grid gap-2">
+                <button id="checkoutBtn" class="btn btn-checkout">
+                  <i class="fas fa-credit-card"></i>
+                  Finalizar Pedido
+                </button>
+                <button id="clearCartBtn" class="btn btn-outline-danger">
+                  <i class="fas fa-trash"></i>
+                  Limpar Carrinho
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Toast de feedback -->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-      <div
-        id="toastFeedback"
-        class="toast align-items-center text-bg-success border-0"
-        role="alert"
-      >
-        <div class="d-flex">
-          <div class="toast-body">Item adicionado!</div>
-          <button
-            type="button"
-            class="btn-close btn-close-white me-2 m-auto"
-            data-bs-dismiss="toast"
-          ></button>
+    <!-- Toast Notifications -->
+    <div
+      class="toast-container position-fixed top-0 end-0 p-3"
+      style="z-index: 9999"
+    >
+      <div id="toastSuccess" class="toast toast-success" role="alert">
+        <div class="toast-body d-flex align-items-center">
+          <i class="fas fa-check-circle me-2"></i>
+          <span class="toast-message"></span>
         </div>
       </div>
     </div>
 
-    <!-- Rodapé -->
-    <footer class="bg-dark text-light text-center py-3">
-      <p class="mb-0">© 2025 Lanchonete do Bairro</p>
-    </footer>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+      </div>
+    </div>
+
+    <!-- Botão flutuante de volta ao topo -->
+    <button class="btn-scroll-top" id="scrollTopBtn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/lang.js"></script>
+    <script src="lang.js"></script>
     <script src="pagina-inicial.js"></script>
   </body>
 </html>
