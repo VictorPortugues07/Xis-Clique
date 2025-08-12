@@ -625,6 +625,9 @@ body {
   justify-content: center;
   font-size: 0.75rem;
 }
+.card-footer #clearCartBtn {
+  padding-top: 50px;
+}
 
 .cart-footer {
   padding: 1.5rem;
