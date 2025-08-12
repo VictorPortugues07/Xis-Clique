@@ -36,7 +36,7 @@
       "description": "Hambúrguer artesanal de 180g, queijo cheddar, alface, tomate, cebola e molho especial",
       "price": 28.9,
       "category": "burgers",
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+      "image": "https://www.shutterstock.com/image-photo/big-classic-beef-cheese-burger-600nw-2186648631.jpg",
       "featured": true
     },
     {
@@ -45,7 +45,7 @@
       "description": "Massa artesanal, molho de tomate, mozzarella de búfala, manjericão fresco",
       "price": 42.9,
       "category": "pizzas",
-      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Pizza_Margherita_stu_spivack.jpg/1200px-Pizza_Margherita_stu_spivack.jpg",
       "featured": true
     },
     {
@@ -54,7 +54,7 @@
       "description": "Refrigerante tradicional gelado",
       "price": 6.9,
       "category": "drinks",
-      "image": "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop"
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR46N0Mve_RT7aYwSHFzzfJumk4mVy2Ki_bXw&s"
     },
     {
       "id": 4,
@@ -62,7 +62,7 @@
       "description": "Hambúrguer suculento de 200g com queijo cheddar, bacon crocante, alface e molho especial",
       "price": 32.5,
       "category": "burgers",
-      "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=300&fit=crop",
+      "image": "https://panoramadeviagem.com.br/wp-content/uploads/2022/05/Bob-Beef-Hamburguer-Bob-Whiskey-Tomas-Rangel-2-1210x642.jpg",
       "featured": false
     },
     {
@@ -71,7 +71,7 @@
       "description": "Massa fina, molho de tomate, mozzarella e fatias generosas de pepperoni",
       "price": 45.0,
       "category": "pizzas",
-      "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400&h=300&fit=crop",
+      "image": "https://divirtasecuritiba.com/wp-content/uploads/2024/04/handler.php-5-1.jpeg?w=550&h=367&crop=1",
       "featured": false
     },
     {
@@ -80,7 +80,7 @@
       "description": "Refrigerante sabor laranja, refrescante e gelado",
       "price": 6.5,
       "category": "drinks",
-      "image": "https://images.unsplash.com/photo-1574226516831-e1dff420e36e?w=400&h=300&fit=crop",
+      "image": "https://andinacocacola.vtexassets.com/arquivos/ids/158997/Fanta%20Laranja%20350ml.jpg?v=638842097645430000",
       "featured": false
     },
     {
@@ -89,7 +89,7 @@
       "description": "Delicioso milkshake cremoso de morango com chantilly",
       "price": 15.0,
       "category": "drinks",
-      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+      "image": "https://png.pngtree.com/background/20250514/original/pngtree-delicious-strawberry-milkshake-with-whipped-cream-and-cherry-picture-image_16545953.jpg",
       "featured": true
     },
     {
@@ -98,7 +98,7 @@
       "description": "Hambúrguer vegetal com queijo vegano, alface, tomate e maionese caseira",
       "price": 29.9,
       "category": "burgers",
-      "image": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&h=300&fit=crop",
+      "image": "https://www.greenme.com.br/wp-content/uploads/2020/11/hamburguer-vegano.jpg",
       "featured": false
     },
     {
@@ -107,7 +107,7 @@
       "description": "Massa artesanal com molho branco e queijo mozzarella, gorgonzola, parmesão e provolone",
       "price": 48.5,
       "category": "pizzas",
-      "image": "https://images.unsplash.com/photo-1548365328-94386b1f95aa?w=400&h=300&fit=crop",
+      "image": "https://s2-casaejardim.glbimg.com/yYQlnrMfVCUmYl9XQmCYQDZpYJU=/0x0:1280x989/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_a0b7e59562ef42049f4e191fe476fe7d/internal_photos/bs/2024/n/r/DFzS5oThATdeyHUMA7Ow/receita-pizza-quatro-queijos-provolone-gorgonzola-parmesao-mucarela-borda-lenha.jpg",
       "featured": true
     },
     {
@@ -116,7 +116,7 @@
       "description": "Brownie quente servido com sorvete de baunilha",
       "price": 18.0,
       "category": "desserts",
-      "image": "https://images.unsplash.com/photo-1551022376-5a9f39ecab10?w=400&h=300&fit=crop",
+      "image": "https://f.i.uol.com.br/folha/comida/images/12265607.jpeg",
       "featured": false
     },
     {
@@ -125,7 +125,7 @@
       "description": "2 Big Burgers Clássicos, 2 batatas fritas grandes e 4 refrigerantes Coca-Cola 350ml",
       "price": 85.0,
       "category": "combos",
-      "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400&h=300&fit=crop",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB7VWHIcHzDOWFWiG40L6UXOraNcg2wvgaVw&s",
       "featured": true
     },
     {
@@ -134,7 +134,7 @@
       "description": "Massa fina, molho de tomate, mozzarella e fatias de calabresa com cebola",
       "price": 44.9,
       "category": "pizzas",
-      "image": "https://images.unsplash.com/photo-1590080877777-6a5c6c007c71?w=400&h=300&fit=crop",
+      "image": "https://cdn0.tudoreceitas.com/pt/posts/5/4/1/pizza_de_liquidificador_de_calabresa_6145_orig.jpg",
       "featured": false
     },
     {
@@ -143,7 +143,7 @@
       "description": "Suco 100% natural, espremido na hora",
       "price": 7.5,
       "category": "drinks",
-      "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&h=300&fit=crop",
+      "image": "https://img.freepik.com/fotos-premium/um-copo-de-suco-espremido-na-hora-cercado-por-laranjas-e-tangerinas-foto-vertical_186456-303.jpg",
       "featured": false
     },
     {
@@ -152,7 +152,7 @@
       "description": "Hambúrguer artesanal com queijo cheddar, bacon crocante e molho barbecue",
       "price": 34.9,
       "category": "burgers",
-      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+      "image": "https://s2.glbimg.com/J37rcGJSqqOBHXy7PtN1JGOCgww=/620x455/e.glbimg.com/og/ed/f/original/2020/09/03/bacon_burger_-_01.jpg",
       "featured": true
     },
     {
@@ -161,7 +161,7 @@
       "description": "Massa fina, molho de tomate, mozzarella, presunto, ovos e azeitonas",
       "price": 46.0,
       "category": "pizzas",
-      "image": "https://images.unsplash.com/photo-1548365328-94386b1f95aa?w=400&h=300&fit=crop",
+      "image": "https://img.cdndsgni.com/preview/10059174-m.jpg",
       "featured": false
     },
     {
@@ -170,7 +170,7 @@
       "description": "Petit Gateau com recheio de chocolate quente servido com sorvete",
       "price": 20.0,
       "category": "desserts",
-      "image": "https://images.unsplash.com/photo-1543352634-408bdb4b25fa?w=400&h=300&fit=crop",
+      "image": "https://institucional.jequiti.com.br/img/galeria/2012/03/136.jpg",
       "featured": false
     },
     {
@@ -179,7 +179,7 @@
       "description": "Água mineral natural sem gás",
       "price": 4.5,
       "category": "drinks",
-      "image": "https://images.unsplash.com/photo-1574226516831-e1dff420e36e?w=400&h=300&fit=crop",
+      "image": "https://mambodelivery.vtexassets.com/arquivos/ids/184965-800-450?v=637884009070200000&width=800&height=450&aspect=true",
       "featured": false
     },
     {
@@ -188,7 +188,7 @@
       "description": "Pizza Margherita média + 2 refrigerantes Coca-Cola 350ml",
       "price": 59.9,
       "category": "combos",
-      "image": "https://images.unsplash.com/photo-1590080877777-6a5c6c007c71?w=400&h=300&fit=crop",
+      "image": "https://storage.googleapis.com/prod-cardapio-web/uploads/item/image/1889620/f0523604502992311_18058443818233759_7683530415301251969_n.webp.jpeg",
       "featured": true
     }
   ]
