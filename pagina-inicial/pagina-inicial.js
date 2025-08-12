@@ -1,308 +1,79 @@
-// ===== DADOS MOCK =====
-const mockData = {
-  banners: [
-    {
-      id: 1,
-      image:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=300&fit=crop",
-      title: "Promoção Especial",
-      subtitle: "Combo Família - 20% OFF",
-    },
-    {
-      id: 2,
-      image:
-        "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=300&fit=crop",
-      title: "Novos Sabores",
-      subtitle: "Experimente nossos novos burgers gourmet",
-    },
-    {
-      id: 3,
-      image:
-        "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=300&fit=crop",
-      title: "Pizza da Casa",
-      subtitle: "Massa artesanal, ingredientes frescos",
-    },
-  ],
+let mockData = null;
 
-  categories: [
-    { id: "all", name: "Todos os Produtos", icon: "bi-grid-3x3-gap" },
-    { id: "burgers", name: "Hamburgers", icon: "bi-circle" },
-    { id: "pizzas", name: "Pizzas", icon: "bi-circle" },
-    { id: "drinks", name: "Bebidas", icon: "bi-cup" },
-    { id: "desserts", name: "Sobremesas", icon: "bi-heart" },
-    { id: "combos", name: "Combos", icon: "bi-collection" },
-  ],
+async function loadMockData() {
+  const res = await fetch("./elementos.json");
+  mockData = await res.json();
 
-  products: [
-    {
-      id: 1,
-      name: "Big Burger Clássico",
-      description:
-        "Hambúrguer artesanal de 180g, queijo cheddar, alface, tomate, cebola e molho especial",
-      price: 28.9,
-      category: "burgers",
-      image:
-        "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
-      featured: true,
-    },
-    {
-      id: 2,
-      name: "Pizza Margherita",
-      description:
-        "Massa artesanal, molho de tomate, mozzarella de búfala, manjericão fresco",
-      price: 42.9,
-      category: "pizzas",
-      image:
-        "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop",
-      featured: true,
-    },
-    {
-      id: 3,
-      name: "Coca-Cola 350ml",
-      description: "Refrigerante tradicional gelado",
-      price: 6.9,
-      category: "drinks",
-      image:
-        "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop",
-    },
-    {
-      id: 4,
-      name: "Burger Bacon Supreme",
-      description:
-        "Hambúrguer de 200g, bacon crocante, queijo suíço, cebola caramelizada",
-      price: 34.9,
-      category: "burgers",
-      image:
-        "https://images.unsplash.com/photo-1550317138-10000687a72b?w=400&h=300&fit=crop",
-      featured: true,
-    },
-    {
-      id: 5,
-      name: "Pizza Calabresa",
-      description: "Calabresa especial, cebola, azeitonas, queijo mozzarella",
-      price: 38.9,
-      category: "pizzas",
-      image:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
-    },
-    {
-      id: 6,
-      name: "Milkshake de Chocolate",
-      description:
-        "Cremoso milkshake com sorvete de chocolate, chantilly e raspas",
-      price: 16.9,
-      category: "desserts",
-      image:
-        "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400&h=300&fit=crop",
-    },
-    {
-      id: 7,
-      name: "Combo Família",
-      description: "2 Big Burgers + 1 Pizza Média + 4 Bebidas + Batata Grande",
-      price: 89.9,
-      category: "combos",
-      image:
-        "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?w=400&h=300&fit=crop",
-      featured: true,
-    },
-    {
-      id: 8,
-      name: "Suco Natural Laranja",
-      description: "Suco natural de laranja espremido na hora - 500ml",
-      price: 12.9,
-      category: "drinks",
-      image:
-        "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&h=300&fit=crop",
-    },
-  ],
-};
+  // Depois que os dados forem carregados, inicia a aplicação
+  initializeApp();
+}
 
-// ===== ESTADO DA APLICAÇÃO =====
-class AppState {
-  constructor() {
-    this.cart = [];
-    this.currentCategory = "all";
-    this.searchTerm = "";
-    this.viewMode = "grid";
-    this.isCartOpen = false;
-    this.deliveryFee = 5.0;
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  loadMockData();
+});
+const appState = {
+  currentCategory: "all", // valor inicial
+  searchTerm: "",
+  viewMode: "grid",
+  cart: [],
+  isCartOpen: false,
 
   addToCart(product, quantity = 1, observations = "") {
-    const existingItem = this.cart.find(
-      (item) => item.id === product.id && item.observations === observations
-    );
-
+    // lógica de adicionar produto no carrinho
+    const existingItem = this.cart.find((item) => item.id === product.id);
     if (existingItem) {
       existingItem.quantity += quantity;
+      existingItem.observations = observations; // opcional
     } else {
       this.cart.push({
         ...product,
         quantity,
         observations,
-        cartId: Date.now() + Math.random(),
+        cartId: Date.now(),
       });
     }
-
     this.updateCartUI();
-    this.showToast("Item adicionado ao carrinho!", "success");
-  }
+  },
 
   removeFromCart(cartId) {
-    this.cart = this.cart.filter((item) => item.cartId !== cartId);
+    this.cart = this.cart.filter((item) => item.cartId != cartId);
     this.updateCartUI();
-    this.showToast("Item removido do carrinho", "error");
-  }
+  },
 
-  updateQuantity(cartId, newQuantity) {
-    const item = this.cart.find((item) => item.cartId === cartId);
-    if (item && newQuantity > 0) {
-      item.quantity = newQuantity;
+  updateQuantity(cartId, quantity) {
+    const item = this.cart.find((i) => i.cartId == cartId);
+    if (!item) return;
+    if (quantity <= 0) this.removeFromCart(cartId);
+    else {
+      item.quantity = quantity;
       this.updateCartUI();
-    } else if (newQuantity <= 0) {
-      this.removeFromCart(cartId);
     }
-  }
+  },
 
   clearCart() {
     this.cart = [];
     this.updateCartUI();
-    this.showToast("Carrinho limpo!", "success");
-  }
+  },
 
   getCartTotal() {
-    const subtotal = this.cart.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-    return subtotal + (this.cart.length > 0 ? this.deliveryFee : 0);
-  }
-
-  getSubtotal() {
     return this.cart.reduce(
       (total, item) => total + item.price * item.quantity,
       0
     );
-  }
-
-  getItemCount() {
-    return this.cart.reduce((total, item) => total + item.quantity, 0);
-  }
+  },
 
   updateCartUI() {
-    this.updateCartBadge();
-    this.updateCartItems();
-    this.updateCartTotals();
-  }
+    // Atualize a UI do carrinho (total, itens, etc)
+    // Essa função deve ser implementada conforme seu HTML do carrinho
+    // Se não tiver, pode deixar vazia por enquanto
+  },
 
-  updateCartBadge() {
-    const badges = document.querySelectorAll("#cartBadge, #cartCountBadge");
-    const count = this.getItemCount();
-
-    badges.forEach((badge) => {
-      badge.textContent = count;
-      badge.style.display = count > 0 ? "flex" : "none";
-    });
-  }
-
-  updateCartItems() {
-    const cartContainer = document.getElementById("cartItems");
-    const emptyState = document.getElementById("cartEmpty");
-
-    if (this.cart.length === 0) {
-      cartContainer.innerHTML = "";
-      emptyState.style.display = "block";
-      return;
-    }
-
-    emptyState.style.display = "none";
-    cartContainer.innerHTML = this.cart
-      .map(
-        (item) => `
-      <li class="cart-item" data-cart-id="${item.cartId}">
-        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-        <div class="cart-item-details">
-          <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-price">R$ ${item.price.toFixed(2)}</div>
-          ${
-            item.observations
-              ? `<small class="text-muted">Obs: ${item.observations}</small>`
-              : ""
-          }
-        </div>
-        <div class="cart-item-actions">
-          <div class="quantity-controls">
-            <button class="btn btn-outline-secondary btn-sm decrease-qty" data-cart-id="${
-              item.cartId
-            }">-</button>
-            <input type="number" class="form-control form-control-sm qty-input" value="${
-              item.quantity
-            }" min="1" data-cart-id="${item.cartId}">
-            <button class="btn btn-outline-secondary btn-sm increase-qty" data-cart-id="${
-              item.cartId
-            }">+</button>
-          </div>
-          <button class="remove-item-btn" data-cart-id="${
-            item.cartId
-          }" title="Remover item">
-            <i class="bi bi-x"></i>
-          </button>
-        </div>
-      </li>
-    `
-      )
-      .join("");
-  }
-
-  updateCartTotals() {
-    const subtotalEl = document.getElementById("cartSubtotal");
-    const totalEl = document.getElementById("cartTotal");
-    const deliveryEl = document.getElementById("deliveryFee");
-
-    const subtotal = this.getSubtotal();
-    const total = this.getCartTotal();
-
-    if (subtotalEl) subtotalEl.textContent = `R$ ${subtotal.toFixed(2)}`;
-    if (totalEl) totalEl.textContent = `R$ ${total.toFixed(2)}`;
-    if (deliveryEl) {
-      deliveryEl.textContent =
-        this.cart.length > 0 ? `R$ ${this.deliveryFee.toFixed(2)}` : "Grátis";
-    }
-  }
-
-  showToast(message, type = "success") {
-    const toastContainer = document.querySelector(".toast-container");
-    const toastId = "toast-" + Date.now();
-
-    const toast = document.createElement("div");
-    toast.className = `toast toast-${type}`;
-    toast.id = toastId;
-    toast.innerHTML = `
-      <div class="toast-body d-flex align-items-center">
-        <i class="bi bi-${
-          type === "success" ? "check-circle" : "exclamation-circle"
-        } me-2"></i>
-        ${message}
-      </div>
-    `;
-
-    toastContainer.appendChild(toast);
-
-    const bsToast = new bootstrap.Toast(toast, { delay: 3000 });
-    bsToast.show();
-
-    toast.addEventListener("hidden.bs.toast", () => {
-      toast.remove();
-    });
-  }
-}
-
-// ===== INICIALIZAÇÃO =====
-const appState = new AppState();
-
-document.addEventListener("DOMContentLoaded", function () {
-  initializeApp();
-});
+  showToast(message, type) {
+    // Opcional: mostrar mensagem toast para usuário
+    // tipo: 'success', 'error', etc
+    alert(message);
+  },
+};
 
 function initializeApp() {
   // Simular loading

@@ -1,0 +1,195 @@
+{
+  "banners": [
+    {
+      "id": 1,
+      "image": "https://i.pinimg.com/736x/74/3a/46/743a469a69ced2efffe8c2d3026ab852.jpg",
+      "title": "Promoção Especial",
+      "subtitle": "Combo Família - 20% OFF"
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=300&fit=crop",
+      "title": "Novos Sabores",
+      "subtitle": "Experimente nossos novos burgers gourmet"
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=300&fit=crop",
+      "title": "Pizza da Casa",
+      "subtitle": "Massa artesanal, ingredientes frescos"
+    }
+  ],
+
+  "categories": [
+    { "id": "all", "name": "Todos os Produtos", "icon": "bi-grid-3x3-gap" },
+    { "id": "burgers", "name": "Hamburgers", "icon": "bi-circle" },
+    { "id": "pizzas", "name": "Pizzas", "icon": "bi-circle" },
+    { "id": "drinks", "name": "Bebidas", "icon": "bi-cup" },
+    { "id": "desserts", "name": "Sobremesas", "icon": "bi-heart" },
+    { "id": "combos", "name": "Combos", "icon": "bi-collection" }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Big Burger Clássico",
+      "description": "Hambúrguer artesanal de 180g, queijo cheddar, alface, tomate, cebola e molho especial",
+      "price": 28.9,
+      "category": "burgers",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Pizza Margherita",
+      "description": "Massa artesanal, molho de tomate, mozzarella de búfala, manjericão fresco",
+      "price": 42.9,
+      "category": "pizzas",
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "Coca-Cola 350ml",
+      "description": "Refrigerante tradicional gelado",
+      "price": 6.9,
+      "category": "drinks",
+      "image": "https://images.unsplash.com/photo-1581636625402-29b2a704ef13?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 4,
+      "name": "Cheeseburger Supreme",
+      "description": "Hambúrguer suculento de 200g com queijo cheddar, bacon crocante, alface e molho especial",
+      "price": 32.5,
+      "category": "burgers",
+      "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "name": "Pizza Pepperoni",
+      "description": "Massa fina, molho de tomate, mozzarella e fatias generosas de pepperoni",
+      "price": 45.0,
+      "category": "pizzas",
+      "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "Fanta Laranja 350ml",
+      "description": "Refrigerante sabor laranja, refrescante e gelado",
+      "price": 6.5,
+      "category": "drinks",
+      "image": "https://images.unsplash.com/photo-1574226516831-e1dff420e36e?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "name": "Milkshake de Morango",
+      "description": "Delicioso milkshake cremoso de morango com chantilly",
+      "price": 15.0,
+      "category": "drinks",
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+      "featured": true
+    },
+    {
+      "id": 8,
+      "name": "Hambúrguer Veggie",
+      "description": "Hambúrguer vegetal com queijo vegano, alface, tomate e maionese caseira",
+      "price": 29.9,
+      "category": "burgers",
+      "image": "https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "name": "Pizza Quatro Queijos",
+      "description": "Massa artesanal com molho branco e queijo mozzarella, gorgonzola, parmesão e provolone",
+      "price": 48.5,
+      "category": "pizzas",
+      "image": "https://images.unsplash.com/photo-1548365328-94386b1f95aa?w=400&h=300&fit=crop",
+      "featured": true
+    },
+    {
+      "id": 10,
+      "name": "Brownie com Sorvete",
+      "description": "Brownie quente servido com sorvete de baunilha",
+      "price": 18.0,
+      "category": "desserts",
+      "image": "https://images.unsplash.com/photo-1551022376-5a9f39ecab10?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 11,
+      "name": "Combo Família Burger",
+      "description": "2 Big Burgers Clássicos, 2 batatas fritas grandes e 4 refrigerantes Coca-Cola 350ml",
+      "price": 85.0,
+      "category": "combos",
+      "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400&h=300&fit=crop",
+      "featured": true
+    },
+    {
+      "id": 12,
+      "name": "Pizza Calabresa",
+      "description": "Massa fina, molho de tomate, mozzarella e fatias de calabresa com cebola",
+      "price": 44.9,
+      "category": "pizzas",
+      "image": "https://images.unsplash.com/photo-1590080877777-6a5c6c007c71?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 13,
+      "name": "Suco Natural de Laranja",
+      "description": "Suco 100% natural, espremido na hora",
+      "price": 7.5,
+      "category": "drinks",
+      "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 14,
+      "name": "Hambúrguer Bacon BBQ",
+      "description": "Hambúrguer artesanal com queijo cheddar, bacon crocante e molho barbecue",
+      "price": 34.9,
+      "category": "burgers",
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+      "featured": true
+    },
+    {
+      "id": 15,
+      "name": "Pizza Portuguesa",
+      "description": "Massa fina, molho de tomate, mozzarella, presunto, ovos e azeitonas",
+      "price": 46.0,
+      "category": "pizzas",
+      "image": "https://images.unsplash.com/photo-1548365328-94386b1f95aa?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 16,
+      "name": "Sobremesa Petit Gateau",
+      "description": "Petit Gateau com recheio de chocolate quente servido com sorvete",
+      "price": 20.0,
+      "category": "desserts",
+      "image": "https://images.unsplash.com/photo-1543352634-408bdb4b25fa?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 17,
+      "name": "Água Mineral 500ml",
+      "description": "Água mineral natural sem gás",
+      "price": 4.5,
+      "category": "drinks",
+      "image": "https://images.unsplash.com/photo-1574226516831-e1dff420e36e?w=400&h=300&fit=crop",
+      "featured": false
+    },
+    {
+      "id": 18,
+      "name": "Combo Pizza + Refrigerante",
+      "description": "Pizza Margherita média + 2 refrigerantes Coca-Cola 350ml",
+      "price": 59.9,
+      "category": "combos",
+      "image": "https://images.unsplash.com/photo-1590080877777-6a5c6c007c71?w=400&h=300&fit=crop",
+      "featured": true
+    }
+  ]
+}
