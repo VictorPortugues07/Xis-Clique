@@ -1,5 +1,29 @@
 // ===== DADOS MOCK =====
 const mockData = {
+  banners: [
+    {
+      id: 1,
+      image:
+        "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=300&fit=crop",
+      title: "Promoção Especial",
+      subtitle: "Combo Família - 20% OFF",
+    },
+    {
+      id: 2,
+      image:
+        "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=300&fit=crop",
+      title: "Novos Sabores",
+      subtitle: "Experimente nossos novos burgers gourmet",
+    },
+    {
+      id: 3,
+      image:
+        "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&h=300&fit=crop",
+      title: "Pizza da Casa",
+      subtitle: "Massa artesanal, ingredientes frescos",
+    },
+  ],
+
   categories: [
     { id: "all", name: "Todos os Produtos", icon: "bi-grid-3x3-gap" },
     { id: "burgers", name: "Hamburgers", icon: "bi-circle" },
