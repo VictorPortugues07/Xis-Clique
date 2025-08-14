@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Carregar dados do JSON
 async function loadMockData() {
   try {
-    const response = await fetch("elementos.json");
+    const response = await fetch("../json/elementos.json");
     const data = await response.json();
     app.products = data.products;
     app.banners = data.banners;
