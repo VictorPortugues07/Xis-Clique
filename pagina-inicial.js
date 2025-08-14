@@ -2,173 +2,40 @@
 const app = {
   currentUser: null,
   cart: [],
-  products: [
-    // Hambúrgueres
-    {
-      id: 1,
-      name: "🍔 X-Burguer",
-      category: "burgers",
-      price: 15.9,
-      description: "Hambúrguer, queijo, alface, tomate",
-    },
-    {
-      id: 2,
-      name: "🍔 X-Bacon",
-      category: "burgers",
-      price: 18.9,
-      description: "Hambúrguer, bacon, queijo, alface",
-    },
-    {
-      id: 3,
-      name: "🍔 X-Tudo",
-      category: "burgers",
-      price: 22.9,
-      description: "Hambúrguer completo com tudo",
-    },
-    {
-      id: 4,
-      name: "🍔 X-Salada",
-      category: "burgers",
-      price: 16.9,
-      description: "Hambúrguer, queijo, salada completa",
-    },
-    {
-      id: 5,
-      name: "🍔 X-Frango",
-      category: "burgers",
-      price: 17.9,
-      description: "Peito de frango grelhado, queijo",
-    },
-    {
-      id: 6,
-      name: "🍔 X-Vegetariano",
-      category: "burgers",
-      price: 19.9,
-      description: "Hambúrguer de soja, vegetais",
-    },
-
-    // Pizzas
-    {
-      id: 7,
-      name: "🍕 Margherita",
-      category: "pizzas",
-      price: 28.9,
-      description: "Molho, mozzarela, manjericão",
-    },
-    {
-      id: 8,
-      name: "🍕 Pepperoni",
-      category: "pizzas",
-      price: 32.9,
-      description: "Molho, mozzarela, pepperoni",
-    },
-    {
-      id: 9,
-      name: "🍕 Portuguesa",
-      category: "pizzas",
-      price: 35.9,
-      description: "Presunto, ovos, cebola, azeitona",
-    },
-    {
-      id: 10,
-      name: "🍕 Quatro Queijos",
-      category: "pizzas",
-      price: 34.9,
-      description: "Mozzarela, gorgonzola, parmesão",
-    },
-    {
-      id: 11,
-      name: "🍕 Calabresa",
-      category: "pizzas",
-      price: 30.9,
-      description: "Calabresa, cebola, azeitona",
-    },
-    {
-      id: 12,
-      name: "🍕 Frango Catupiry",
-      category: "pizzas",
-      price: 33.9,
-      description: "Frango desfiado, catupiry",
-    },
-
-    // Bebidas
-    {
-      id: 13,
-      name: "🥤 Coca-Cola",
-      category: "bebidas",
-      price: 5.9,
-      description: "Refrigerante 350ml gelado",
-    },
-    {
-      id: 14,
-      name: "🥤 Guaraná",
-      category: "bebidas",
-      price: 5.9,
-      description: "Guaraná Antarctica 350ml",
-    },
-    {
-      id: 15,
-      name: "🧃 Suco Natural",
-      category: "bebidas",
-      price: 7.9,
-      description: "Suco natural de frutas 400ml",
-    },
-    {
-      id: 16,
-      name: "💧 Água",
-      category: "bebidas",
-      price: 3.9,
-      description: "Água mineral 500ml",
-    },
-    {
-      id: 17,
-      name: "☕ Café",
-      category: "bebidas",
-      price: 4.9,
-      description: "Café expresso tradicional",
-    },
-    {
-      id: 18,
-      name: "🥤 Sprite",
-      category: "bebidas",
-      price: 5.9,
-      description: "Refrigerante limão 350ml",
-    },
-
-    // Sobremesas
-    {
-      id: 19,
-      name: "🍰 Pudim",
-      category: "sobremesas",
-      price: 8.9,
-      description: "Pudim de leite condensado",
-    },
-    {
-      id: 20,
-      name: "🍫 Brigadeiro",
-      category: "sobremesas",
-      price: 3.9,
-      description: "Brigadeiro gourmet",
-    },
-    {
-      id: 21,
-      name: "🍨 Sorvete",
-      category: "sobremesas",
-      price: 12.9,
-      description: "Sorvete 3 bolas sabores variados",
-    },
-  ],
+  products: [],
+  banners: [],
   currentCategory: "all",
   searchTerm: "",
 };
 
 // Inicialização
 document.addEventListener("DOMContentLoaded", function () {
-  loadUser();
-  setupEventListeners();
-  startBannerCarousel();
-  loadCart();
+  loadMockData();
 });
+
+// Carregar dados do JSON
+async function loadMockData() {
+  try {
+    const response = await fetch("elementos.json");
+    const data = await response.json();
+    app.products = data.products;
+    app.banners = data.banners;
+
+    // Iniciar aplicação após carregar dados
+    initializeApp();
+  } catch (error) {
+    console.error("Erro ao carregar dados:", error);
+    // Fallback com dados básicos se não conseguir carregar o JSON
+    initializeApp();
+  }
+}
+
+function initializeApp() {
+  loadUser();
+  loadCart();
+  setupEventListeners();
+  renderBanners();
+}
 
 // Gerenciamento de usuário
 function loadUser() {
@@ -194,6 +61,7 @@ function showMainApp() {
   document.getElementById("userName").textContent = app.currentUser.name;
   renderProducts();
   updateCartUI();
+  startBannerCarousel();
 }
 
 // Event Listeners
@@ -201,33 +69,57 @@ function setupEventListeners() {
   // Login/Register
   document
     .getElementById("showRegister")
-    .addEventListener("click", toggleForms);
-  document.getElementById("showLogin").addEventListener("click", toggleForms);
-  document.getElementById("loginForm").addEventListener("submit", handleLogin);
+    ?.addEventListener("click", toggleForms);
+  document.getElementById("showLogin")?.addEventListener("click", toggleForms);
+  document.getElementById("loginForm")?.addEventListener("submit", handleLogin);
   document
     .getElementById("registerForm")
-    .addEventListener("submit", handleRegister);
-  document.getElementById("logoutBtn").addEventListener("click", handleLogout);
+    ?.addEventListener("submit", handleRegister);
+  document.getElementById("logoutBtn")?.addEventListener("click", handleLogout);
 
   // Filtros e busca
   document
     .getElementById("searchInput")
-    .addEventListener("input", handleSearch);
+    ?.addEventListener("input", handleSearch);
   document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.addEventListener("click", handleCategoryFilter);
   });
 
   // Carrinho
-  document.getElementById("clearCartBtn").addEventListener("click", clearCart);
-  document.getElementById("checkoutBtn").addEventListener("click", checkout);
+  document.getElementById("clearCartBtn")?.addEventListener("click", clearCart);
+  document.getElementById("checkoutBtn")?.addEventListener("click", checkout);
 
   // Produtos (delegação de eventos)
   document
     .getElementById("productGrid")
-    .addEventListener("click", handleProductClick);
+    ?.addEventListener("click", handleProductClick);
   document
     .getElementById("cartItems")
-    .addEventListener("click", handleCartClick);
+    ?.addEventListener("click", handleCartClick);
+}
+
+// Renderização de banners
+function renderBanners() {
+  const carouselInner = document.querySelector(
+    "#bannerCarousel .carousel-inner"
+  );
+  if (!carouselInner || !app.banners.length) return;
+
+  carouselInner.innerHTML = app.banners
+    .map(
+      (banner, index) => `
+        <div class="carousel-item ${index === 0 ? "active" : ""}">
+            <img src="${banner.image}" class="d-block w-100" alt="${
+        banner.title
+      }" style="height: 200px; object-fit: cover;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>${banner.title}</h5>
+                <p>${banner.subtitle}</p>
+            </div>
+        </div>
+    `
+    )
+    .join("");
 }
 
 // Formulários de login/registro
@@ -314,6 +206,8 @@ function startBannerCarousel() {
 // Renderização de produtos
 function renderProducts() {
   const grid = document.getElementById("productGrid");
+  if (!grid || !app.products.length) return;
+
   let filtered = app.products;
 
   // Filtro por categoria
@@ -335,13 +229,18 @@ function renderProducts() {
       (product) => `
         <div class="col-md-6 col-lg-4 mb-3 fade-in">
             <div class="card product-card h-100">
+                ${
+                  product.image
+                    ? `<img src="${product.image}" class="card-img-top product-image" alt="${product.name}">`
+                    : ""
+                }
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">${product.description}</p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="product-price">R$ ${product.price.toFixed(
-                          2
-                        )}</span>
+                        <span class="product-price">R$ ${product.price
+                          .toFixed(2)
+                          .replace(".", ",")}</span>
                         <button class="btn btn-danger btn-sm add-to-cart" data-id="${
                           product.id
                         }">
@@ -448,6 +347,8 @@ function updateCartUI() {
   const cartTotal = document.getElementById("cartTotal");
   const emptyCart = document.getElementById("emptyCart");
 
+  if (!cartItems || !cartCount || !cartTotal || !emptyCart) return;
+
   if (app.cart.length === 0) {
     emptyCart.style.display = "block";
     cartItems.innerHTML = "";
@@ -474,9 +375,9 @@ function updateCartUI() {
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h6 class="mb-0">${item.name}</h6>
-                    <small class="text-muted">R$ ${item.price.toFixed(
-                      2
-                    )}</small>
+                    <small class="text-muted">R$ ${item.price
+                      .toFixed(2)
+                      .replace(".", ",")}</small>
                 </div>
                 <div class="quantity-controls">
                     <button class="btn btn-outline-danger btn-sm btn-decrease">-</button>
@@ -496,13 +397,19 @@ function updateCartUI() {
 }
 
 function saveCart() {
-  localStorage.setItem("lanchonete_cart", JSON.stringify(app.cart));
+  if (app.currentUser) {
+    const cartKey = `lanchonete_cart_${app.currentUser.id}`;
+    localStorage.setItem(cartKey, JSON.stringify(app.cart));
+  }
 }
 
 function loadCart() {
-  const savedCart = localStorage.getItem("lanchonete_cart");
-  if (savedCart) {
-    app.cart = JSON.parse(savedCart);
+  if (app.currentUser) {
+    const cartKey = `lanchonete_cart_${app.currentUser.id}`;
+    const savedCart = localStorage.getItem(cartKey);
+    if (savedCart) {
+      app.cart = JSON.parse(savedCart);
+    }
   }
 }
 
@@ -520,9 +427,9 @@ function checkout() {
     .map((item) => `${item.name} x${item.quantity}`)
     .join("\n");
 
-  const confirmMessage = `Finalizar pedido?\n\nItens:\n${itemsList}\n\nTotal: R$ ${total.toFixed(
-    2
-  )}`;
+  const confirmMessage = `Finalizar pedido?\n\nItens:\n${itemsList}\n\nTotal: R$ ${total
+    .toFixed(2)
+    .replace(".", ",")}`;
 
   if (confirm(confirmMessage)) {
     // Simular processamento do pedido
@@ -543,6 +450,8 @@ function checkout() {
 // Utilitários
 function showToast(message, type = "success") {
   const toastContainer = document.querySelector(".toast-container");
+  if (!toastContainer) return;
+
   const toastId = "toast-" + Date.now();
 
   const toastHTML = `
@@ -559,7 +468,6 @@ function showToast(message, type = "success") {
   const toast = new bootstrap.Toast(document.getElementById(toastId));
   toast.show();
 
-  // Remove toast after it's hidden
   document
     .getElementById(toastId)
     .addEventListener("hidden.bs.toast", function () {
